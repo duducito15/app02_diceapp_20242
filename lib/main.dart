@@ -15,8 +15,13 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int leftDice = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -42,13 +47,17 @@ class HomePage extends StatelessWidget {
               child: TextButton(
                   onPressed: () {
                     print("Dado izquierdo");
+                    leftDice = 6;
+                    setState(() {});
                   },
-                  child: Image.asset('assets/images/dice3.png')),
+                  child: Image.asset('assets/images/dice$leftDice.png')),
             ),
             Expanded(
               flex: 1,
               child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    print("Dado derecho");
+                  },
                   child: Image.asset('assets/images/dice5.png')),
             ),
           ],
