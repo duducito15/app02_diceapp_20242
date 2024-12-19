@@ -62,6 +62,11 @@ class _HomePageState extends State<HomePage> {
                   onPressed: () {
                     rightDice = Random().nextInt(6) + 1;
                     leftDice = Random().nextInt(6) + 1;
+                    if (rightDice == leftDice) {
+                      print("Ganaste");
+                    } else {
+                      print("Intenta de nuevo");
+                    }
                     setState(() {});
                     //print("Dado derecho");
                   },
